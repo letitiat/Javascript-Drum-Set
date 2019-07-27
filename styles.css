@@ -1,0 +1,96 @@
+html {
+  font-size: 10px;
+  background-color: #001021;
+  background-repeat: no-repeat;
+}
+
+body,html {
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+  max-width: 95%;
+  }
+
+h1 {
+  font-family: 'Creepster', cursive;
+  font-size: 13em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1em 0;
+  background-image: linear-gradient(#FDFC47, #24FE41);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10rem;
+}
+
+.key {
+  flex-direction: column;
+  border-radius: 1em;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 100%;
+  max-width: 11rem;
+  min-width: 6rem;
+  text-align: center;
+  color: white;
+  background: rgba(255,255,255,0.2);
+  text-shadow: 0 0 .1rem #fc00ff;
+
+}
+
+
+.playing {
+  transform: scale(1.1);
+  border-color: #00dbde;
+  box-shadow: 0 0 3rem #FDFC47;
+  background-image: linear-gradient(#FDFC47, #24FE41);
+}
+
+.playing span {
+  color: black;
+}
+
+kbd {
+  display: block;
+  font-family: "Rubik", sans-serif;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #FDFC47;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .key {
+    flex: 0 0 100%;
+    max-width: 50%;
+  }
+
+  h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 10em;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: .5em;
+
+  }
+}
