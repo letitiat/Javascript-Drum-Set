@@ -19,9 +19,6 @@ h1 {
   text-align: center;
   margin: 0 auto;
   padding: 1em 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#FDFC47), to(#24FE41));
-  background-image: -webkit-linear-gradient(#FDFC47, #24FE41);
-  background-image: -o-linear-gradient(#FDFC47, #24FE41);
   background-image: linear-gradient(#FDFC47, #24FE41);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -29,56 +26,34 @@ h1 {
 }
 
 .keys {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 10rem;
+  flex-direction: row;
 }
 
 .key {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   border-radius: 1em;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
-  -webkit-transition: all .07s ease;
-  -o-transition: all .07s ease;
   transition: all .07s ease;
-  width: 100%;
-  max-width: 11rem;
-  min-width: 6rem;
+  flex-basis: 100%;
   text-align: center;
   color: white;
   background: rgba(255,255,255,0.2);
   text-shadow: 0 0 .1rem #fc00ff;
-
+  flex-direction: row;
 }
 
 
 .playing {
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
   border-color: #00dbde;
-  -webkit-box-shadow: 0 0 3rem #FDFC47;
-          box-shadow: 0 0 3rem #FDFC47;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#FDFC47), to(#24FE41));
-  background-image: -webkit-linear-gradient(#FDFC47, #24FE41);
-  background-image: -o-linear-gradient(#FDFC47, #24FE41);
+  box-shadow: 0 0 3rem #FDFC47;
   background-image: linear-gradient(#FDFC47, #24FE41);
 }
 
@@ -99,18 +74,28 @@ kbd {
   color: #FDFC47;
 }
 
+footer {
+  color: #24FE41;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: "Rubik", sans-serif;
+  padding-bottom: 5em;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) {
   .key {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-    max-width: 50%;
-  }
+    max-width: 50em;
+    flex-basis: 8%;
+    flex-direction: row;
+    min-width: 7em;
+    }
+
 
   h1 {
     font-family: 'Creepster', cursive;
-    font-size: 10em;
+    font-size: 20em;
     color: white;
     text-transform: uppercase;
     text-align: center;
