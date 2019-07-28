@@ -1,9 +1,9 @@
+// Creates function that plays sound
+function playSound(keyCode) {
 
-function playSound(e) {
-
-  // Two variables that returns element from audio and key from html based on data-key
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  // Two variables that returns element from audio and key from the parameter
+  const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+  const key = document.querySelector(`.key[data-key="${keyCode}"]`);
 
   if(!audio)
     return; // Stop the function from running all together
@@ -16,6 +16,17 @@ function playSound(e) {
   key.classList.add('playing');
 }
 
+// Creates function that gets key code from key press and passes it through playSound function
+function playSoundOnType(e) {
+  playSound(e.keyCode);
+}
+
+// Creates function that gets data-key attribute value from .key
+function playSoundOnClick(mouse) {
+  var keyCode = this.getAttribute('data-key');
+  playSound(keyCode);
+}
+
 // Removes .playing from class list if propertyName IS NOT 'transform'
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
@@ -26,6 +37,8 @@ function removeTransition(e) {
 const keys = document.querySelectorAll('.key');
 // Add removeTransition function to .key event listener on 'transitionend'
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+// Adds playSoundOnClick function to .key event listener on 'click'
+keys.forEach(key => key.addEventListener('click', playSoundOnClick));
 
 // Calls function playSound when valid key is down
-window.addEventListener('keydown', playSound);
+window.addEventListener('keydown', playSoundOnType);
