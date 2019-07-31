@@ -1,3 +1,5 @@
+const keyHover = 'hover';
+
 // Creates function that plays sound
 function playSound(keyCode) {
 
@@ -5,7 +7,7 @@ function playSound(keyCode) {
   const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${keyCode}"]`);
 
-  if(!audio)
+  if (!audio)
     return; // Stop the function from running all together
 
   // Makes audio play from start
@@ -14,6 +16,16 @@ function playSound(keyCode) {
 
   // Adds .playing to key div
   key.classList.add('playing');
+}
+
+//Creates a function that adds class list on Hover
+function onHover(e) {
+  this.classList.add(keyHover);
+}
+
+//Creates a function that removes class list on Hover
+function removeHover(e) {
+  this.classList.remove(keyHover);
 }
 
 // Creates function that gets key code from key press and passes it through playSound function
@@ -39,6 +51,11 @@ const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 // Adds playSoundOnClick function to .key event listener on 'click'
 keys.forEach(key => key.addEventListener('click', playSoundOnClick));
+
+// Adds onHover function to .key event listener on 'mouseevent'
+keys.forEach(key => key.addEventListener('mouseover', onHover));
+// Removes onHover function to .key event listener on 'mouseevent'
+keys.forEach(key => key.addEventListener('mouseleave', removeHover));
 
 // Calls function playSound when valid key is down
 window.addEventListener('keydown', playSoundOnType);
